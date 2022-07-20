@@ -23,7 +23,7 @@ class PostingsFactory extends Factory
            'address'=>$this->faker->address(),
            'requirements'=>$this->faker->paragraph(4),
            'user_id'=>$this->faker->numberBetween(1, 50),
-           'categorie_id'=>$this->faker->numberBetween(1, 3),
+           'category_id'=>$this->faker->numberBetween(1, 3),
 
         ];
     }

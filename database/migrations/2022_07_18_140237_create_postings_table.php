@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->text('requirements');
             $table->foreignId('user_id');
-            $table->foreignId('categorie_id');
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }
