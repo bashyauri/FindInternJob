@@ -10,6 +10,7 @@ class Category extends Model
     use HasFactory;
     public function postings()
     {
+        // set a relationship between Category and Postings
         return $this->hasMany(Postings::class);
     }
 }

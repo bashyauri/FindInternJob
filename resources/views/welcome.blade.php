@@ -511,9 +511,10 @@
                 </div>
                 <div class="col-lg-6">
                     <h1 class="display-5 fw-bold lh-1 mb-3">internToYou - Connecting Interns to the world. </h1>
-                    <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the
-                        world’s most popular front-end open source toolkit, featuring Sass variables and mixins,
-                        responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                    <p class="lead">Our aim is to help interns search for the most approprite company to work with.
+                        The companies are divided into the categories: Information Technology, Business and marketing.
+                        we hope you will enjoy the details that we posted.
+                    </p>
 
                 </div>
                 <div class="row g-5">
@@ -521,7 +522,7 @@
 
                     <div class="col-md-12">
                         <h2>Categories</h2>
-                        <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.
+                        <p>Kindly emailed us if you think there are some internships that we skipped.
                         </p>
                         <ul class="icon-list">
                             @foreach ($categories as $category)
