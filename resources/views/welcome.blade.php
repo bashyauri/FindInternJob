@@ -402,69 +402,146 @@
     <style>
         body {
             font-family: 'Nunito', sans-serif;
+            background-color: #EEEEEE
+        }
 
+        h1,
+        a {
+            color: #222831
+        }
+
+        p {
+            color: #00ADB5
+        }
+
+        nav {
+            background-color: #576F72;
+
+        }
+
+        .nav-link {
+            color: #F0EBE3;
+        }
+
+        a {
+            color: #E4DCCF;
+        }
+
+        a:hover {
+            color: #E4DCCF;
+        }
+
+        .list-category {
+            color: #222831
+        }
+
+        .nav-link:hover {
+            color: #E4DCCF;
+        }
+
+        span {
+            color: #7D9D9C;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #576F72
         }
     </style>
 </head>
-<main style="background-color:blue">
 
-    <body class="antialiased">
-        <div
-            class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}"
-                            class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log
-                            in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}"
-                                class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
+<body class="antialiased">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">internToYou</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach ($categories as $category)
+                                <li><a class="dropdown-item"
+                                        href="{{ route('category.show', ['id' => $category->id]) }}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
+
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="relative flex items-top justify-center min-h-screen  sm:items-center py-4 sm:pt-0">
+        @if (Route::has('login'))
+            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                @auth
+                    <a href="{{ url('/dashboard') }}"
+                        class="text-sm text-gray-700 dark:text-[#E4DCCF]-500 underline">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="text-md text-[#E4DCCF]-700 dark:text-gray-500 underline">Log
+                        in</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}"
+                            class="ml-4 text-md text-[#E4DCCF]-700 dark:text-gray-500 underline">Register</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+
+                    <img src="{{ asset('img/interns.jpg') }}" class="d-block mx-lg-auto img-fluid"
+                        alt="Bootstrap Themes" width="700" height="500" loading="lazy">
                 </div>
-            @endif
-            <div class="container col-xxl-8 px-4 py-5">
-                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                    <div class="col-10 col-sm-8 col-lg-6">
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">internToYou - Connecting Interns to the world. </h1>
+                    <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the
+                        world’s most popular front-end open source toolkit, featuring Sass variables and mixins,
+                        responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
 
-                        <img src="{{ asset('img/interns.jpg') }}" class="d-block mx-lg-auto img-fluid"
-                            alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-                    </div>
-                    <div class="col-lg-6">
-                        <h1 class="display-5 fw-bold lh-1 mb-3">internToYou - Connecting Interns to the world. </h1>
-                        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the
-                            world’s most popular front-end open source toolkit, featuring Sass variables and mixins,
-                            responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-
-                    </div>
-                    <div class="row g-5">
+                </div>
+                <div class="row g-5">
 
 
-                        <div class="col-md-12">
-                            <h2>Categories</h2>
-                            <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.
-                            </p>
-                            <ul class="icon-list">
-                                @foreach ($categories as $category)
-                                    <li><a
-                                            href="{{route('category.show', ['id' => $category->id]) }}">{{ $category->name }}</a>
-                                    </li>
-                                @endforeach
+                    <div class="col-md-12">
+                        <h2>Categories</h2>
+                        <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.
+                        </p>
+                        <ul class="icon-list">
+                            @foreach ($categories as $category)
+                                <li><a class="list-category"
+                                        href="{{ route('category.show', ['id' => $category->id]) }}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
 
 
 
-                            </ul>
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-
-    </body>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
+</body>
 </main>
 
 </html>

@@ -12,9 +12,10 @@ class HomeController extends Controller
         return view('welcome',compact('categories'));
     }
     public function category($id){
-
-        $posts = Category::find($id)->postings;
-        return view('postings',compact('posts'));
+        
+        $posts = Category::find($id)->postings()->paginate(4);
+        $categories=Category::all();
+        return view('postings',compact('posts','categories'));
 
     }
 }
