@@ -13,4 +13,9 @@ class Postings extends Model
         // set a Relationship between Category and Postings
         return $this->belongsTo(Category::class);
     }
+    public function user()
+    {
+        // set a Relationship between User and Postings
+        return $this->belongsTo(User::class);
+    }
 }

@@ -26,6 +26,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/dashboard',[HomeController::class, 'dashboard'])->name('dashboard');
 });
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/category/{id}',[HomeController::class, 'category'])->name('category.show');
