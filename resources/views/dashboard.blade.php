@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="card">
-                            <div class="card-header  bg-[#E4DCCF] ">
+                            <div class="card-header   bg-[#393E46] text-[#EEE] ">
                                 Form
                             </div>
                             <div class="card-body bg-[#576F72]">
