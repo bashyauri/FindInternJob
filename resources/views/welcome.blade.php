@@ -522,7 +522,7 @@
 
                     <div class="col-md-12">
                         <h2>Categories</h2>
-                        <p>Kindly emailed us if you think there are some internships that we skipped.
+                        <p>Kindly email us if you think there are some internships that we skipped.
                         </p>
                         <ul class="icon-list">
                             @foreach ($categories as $category)
