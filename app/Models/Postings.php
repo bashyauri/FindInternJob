@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Postings extends Model
 {
     use HasFactory;
+    protected $fillable = array();
     public function category()
     {
         // set a Relationship between Category and Postings

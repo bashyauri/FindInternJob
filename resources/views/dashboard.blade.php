@@ -48,33 +48,52 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
+                        @if (session('status'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>{{ session('status') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                </button>
+                            </div>
+                        @endif
                         <div class="card">
                             <div class="card-header   bg-[#393E46] text-[#EEE] ">
                                 Form
                             </div>
+
                             <div class="card-body bg-[#7D9D9C]">
-                                <label class="text-[#EEEEEE] font-light">Company name</label>
-                                <input type='text' placeholder="Enter your input here" name='title'
-                                    class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" />
-                                <label class="text-[#EEEEEE] font-light">Company address</label>
-                                <input type='text' placeholder="Enter your input here" name='title'
-                                    class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" />
-                                <label class="text-[#EEEEEE] font-light">Category</label>
-                                <select class="w-full border bg-white rounded px-3 py-2   mt-2 mb-6 outline-none">
-                                    <option class="py-1">Option 1</option>
-                                    <option class="py-1">Option 2</option>
-                                    <option class="py-1">Option 3</option>
-                                </select>
-                                <label class="text-[#EEEEEE] font-light">Requirements</label>
-                                <textarea class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4"></textarea>
-                                <button type="button"
-                                    class="bg-[#576F72]  text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">Submit</button>
+
+                                <form action="{{ route('insert.postings') }}" method="post">
+                                    @csrf
+                                    <label class="text-[#EEEEEE] font-light">Company name</label>
+                                    <input type='text' placeholder="Enter your input here" name='title'
+                                        class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" />
+                                    <label class="text-[#EEEEEE] font-light">Company address</label>
+                                    <input type='text' placeholder="Enter your input here" name='address'
+                                        class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" />
+                                    <label class="text-[#EEEEEE] font-light">Category</label>
+                                    <select class="w-full border bg-white rounded px-3 py-2   mt-2 mb-6 outline-none"
+                                        name="category_id">
+                                        @foreach ($categories as $category)
+                                            <option class="py-1" value="{{ $category->id }}" name="category_id">
+                                                {{ $category->name }}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+                                    <label class="text-[#EEEEEE] font-light">Requirements</label>
+                                    <textarea class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" name="requirements" rows="4"
+                                        required></textarea>
+                                    <button type="submit"
+                                        class="bg-[#576F72]  text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">Submit</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                {{ $posts->links() }}
             </div>
         </div>
+
     </div>
 </x-app-layout>
 <style>

@@ -27,7 +27,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/dashboard',[HomeController::class, 'dashboard'])->name('dashboard');
+    Route::get('/edit-posting/{id}',[HomeController::class, 'editPosting'])->name('posting.edit');
+    Route::post('/update-posting/{id}',[HomeController::class, 'updatePostings'])->name('posting.update');
+    Route::post('/insert.postings',[HomeController::class, 'insertPostings'])->name('insert.postings');
 });
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/category/{id}',[HomeController::class, 'category'])->name('category.show');
-Route::get('/edit-posting/{id}',[HomeController::class, 'editPosting'])->name('posting.edit');
