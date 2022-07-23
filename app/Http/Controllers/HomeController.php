@@ -27,4 +27,7 @@ class HomeController extends Controller
       
         return view('dashboard',compact('posts'));
     }
+    public function editPosting($id){
+        
+    }
 }

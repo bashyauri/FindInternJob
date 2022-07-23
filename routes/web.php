@@ -30,3 +30,4 @@ Route::middleware([
 });
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/category/{id}',[HomeController::class, 'category'])->name('category.show');
+Route::get('/edit-posting/{id}',[HomeController::class, 'editPosting'])->name('posting.edit');

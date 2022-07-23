@@ -35,10 +35,9 @@
                                                 <td class="px-4 py-4">{{ $post->requirements }}</td>
 
                                                 <td class="text-center py-4">
-                                                    <a href="#"><span
+                                                    <a href="{{ route('posting.edit', ['id' => $post->id]) }}"><span
                                                             class="fill-current text-green-500 material-icons">edit</span></a>
-                                                    <a href="#"><span
-                                                            class="fill-current text-red-500 material-icons">highlight_off</span></a>
+
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -53,7 +52,7 @@
                             <div class="card-header   bg-[#393E46] text-[#EEE] ">
                                 Form
                             </div>
-                            <div class="card-body bg-[#576F72]">
+                            <div class="card-body bg-[#7D9D9C]">
                                 <label class="text-[#EEEEEE] font-light">Company name</label>
                                 <input type='text' placeholder="Enter your input here" name='title'
                                     class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" />
@@ -68,7 +67,8 @@
                                 </select>
                                 <label class="text-[#EEEEEE] font-light">Requirements</label>
                                 <textarea class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4"></textarea>
-
+                                <button type="button"
+                                    class="bg-[#576F72]  text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">Submit</button>
                             </div>
                         </div>
                     </div>

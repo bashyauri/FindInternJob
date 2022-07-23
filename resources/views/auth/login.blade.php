@@ -1,51 +1,53 @@
-<x-guest-layout>
-    <x-jet-authentication-card class="text-center">
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+<!DOCTYPE html>
+<html>
 
-        <x-jet-validation-errors class="mb-4" />
+<head>
+    <title>Login Form</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto@100;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
+<body class="bg-gray-300" style="font-family:Roboto">
+    <div class="w-full h-screen flex items-center justify-center">
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" class="w-full md:w-1/3 bg-white rounded-lg" action="{{ route('login') }}">
             @csrf
-
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                    required autofocus />
+            <div class="flex font-bold justify-center mt-6">
+                <img class="h-20 w-20"
+                    src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
             </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                    autocomplete="current-password" />
-            </div>
-
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                        href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-jet-button class="ml-4">
-                    {{ __('Log in') }}
-                </x-jet-button>
-            </div>
+            <h2 class="text-3xl text-center text-gray-700 mb-4">Login Form</h2>
+            <x-jet-validation-errors class="m-4" />
+            @if (session('status'))
+                <div class="m-4 font-medium text-sm text-green-600">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <div class="px-12 pb-10">
+                <div class="w-full mb-2">
+                    <div class="flex items-center">
+                        <i class='ml-3 fill-current text-gray-400 text-xs z-10 fas fa-user'></i>
+                        <input placeholder="Email" id="email" type="email" name="email" :value="old('email')"
+                            class="-mx-6 px-8  w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
+                            required />
+                    </div>
+                </div>
+                <div class="w-full mb-2">
+                    <div class="flex items-center">
+                        <i class='ml-3 fill-current text-gray-400 text-xs z-10 fas fa-lock'></i>
+                        <input type='password' placeholder="Password" id="password"
+                            class="-mx-6 px-8 w-full border rounded px-3 py-2 text-gray-700 focus:outline-none"
+                            name="password" required autocomplete="current-password" />
+                    </div>
+                </div>
+                <a href="{{ route('password.request') }}" class="text-xs text-gray-500 float-right mb-4">Forgot
+                    Password?</a>
+                <button type="submit" class="w-full py-2 rounded-full bg-green-600 text-gray-100  focus:outline-none">
+                    {{ __('Log in') }}</button>
         </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+    </div>
+</body>
+
+</html>
