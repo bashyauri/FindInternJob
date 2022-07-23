@@ -61,6 +61,12 @@ class HomeController extends Controller
         return redirect('dashboard')->with('status', 'Postings Inserted!');
     }
     public function updatePostings(Request $request,$id){
+        $validated = $request->validate([
+            'title' => ['required'],
+            'category_id' => ['required'],
+            'address' => ['required'],
+            'requirements' => ['required']
+        ]);
         $postings = Postings::find($id);
  
         $postings->title = $request->title;
